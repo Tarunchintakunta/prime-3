@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
+import { useSavedCourses } from '../store/AppContext'
 
 type Course = {
   id: string
@@ -90,7 +91,17 @@ const COURSES: Course[] = [
 
 const FILTERS = ['All', 'Python', 'Machine Learning', 'AI Engineering', 'Web', 'Data', 'Cloud']
 
-function CardArt({ image, title }: { image: string; title: string }) {
+function CardArt({
+  image,
+  title,
+  saved,
+  onToggleSave,
+}: {
+  image: string
+  title: string
+  saved: boolean
+  onToggleSave: () => void
+}) {
   return (
     <div
       className="relative overflow-hidden rounded-2xl bg-ink/10"
@@ -113,16 +124,67 @@ function CardArt({ image, title }: { image: string; title: string }) {
           boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.20)',
         }}
       />
+
+      {/* Save toggle */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          onToggleSave()
+        }}
+        aria-label={saved ? `Unsave ${title}` : `Save ${title}`}
+        aria-pressed={saved}
+        className="absolute inline-flex items-center justify-center rounded-full"
+        style={{
+          top: '20px',
+          right: '20px',
+          width: 36,
+          height: 36,
+          background: saved ? '#C8531A' : 'rgba(245, 241, 234, 0.92)',
+          color: saved ? '#F5F1EA' : '#1A1815',
+          border: '1px solid rgba(26, 24, 21, 0.10)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
+          transition:
+            'background 250ms cubic-bezier(0.16, 1, 0.3, 1), color 250ms cubic-bezier(0.16, 1, 0.3, 1), transform 250ms cubic-bezier(0.16, 1, 0.3, 1)',
+        }}
+        onMouseEnter={(e) =>
+          ((e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.06)')
+        }
+        onMouseLeave={(e) =>
+          ((e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)')
+        }
+      >
+        <svg
+          width="14"
+          height="16"
+          viewBox="0 0 14 16"
+          fill={saved ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          strokeWidth="1.4"
+          aria-hidden
+        >
+          <path d="M2 1.5h10v13l-5-3-5 3v-13z" strokeLinejoin="round" />
+        </svg>
+      </button>
     </div>
   )
 }
 
 function CourseCard({ course, delay }: { course: Course; delay: number }) {
+  const { isSaved, toggle } = useSavedCourses()
+  const saved = isSaved(course.id)
   return (
     <Reveal delay={delay}>
       <article className="group flex flex-col gap-5">
         <div className="cta-button">
-          <CardArt image={course.image} title={course.title} />
+          <CardArt
+            image={course.image}
+            title={course.title}
+            saved={saved}
+            onToggleSave={() => toggle(course.id)}
+          />
         </div>
         <div className="flex items-center justify-between">
           <span

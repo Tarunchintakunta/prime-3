@@ -52,7 +52,6 @@ function SplitWords({
 }
 
 export default function Hero() {
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [cursorVisible, setCursorVisible] = useState(false)
   const [cursorExpanded, setCursorExpanded] = useState(true) // expanded inside video
 
@@ -60,8 +59,8 @@ export default function Hero() {
     <div className="relative min-h-screen w-full bg-ivory" style={{ overflow: 'clip' }}>
       <div className="paper-grain" aria-hidden />
 
-      <Nav onOpenMobileMenu={() => setMobileOpen(true)} />
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <Nav />
+      <MobileMenu />
 
       {/* Hairline divider (lg+) */}
       <div

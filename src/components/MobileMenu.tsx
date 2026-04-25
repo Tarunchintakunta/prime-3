@@ -1,11 +1,10 @@
+import { useMobileMenu, useSavedCourses } from '../store/AppContext'
+
 const MENU = ['Index', 'Library', 'Mentors', 'Field Notes', 'Studio']
 
-type Props = {
-  open: boolean
-  onClose: () => void
-}
-
-export default function MobileMenu({ open, onClose }: Props) {
+export default function MobileMenu() {
+  const { open, closeMenu } = useMobileMenu()
+  const { count: savedCount } = useSavedCourses()
   if (!open) return null
   return (
     <div
@@ -17,12 +16,13 @@ export default function MobileMenu({ open, onClose }: Props) {
           href="#"
           className="font-display italic tracking-tight text-2xl"
           style={{ color: '#1A1815' }}
+          onClick={closeMenu}
         >
           Prime Learning
         </a>
         <button
           type="button"
-          onClick={onClose}
+          onClick={closeMenu}
           className="text-2xl font-display"
           aria-label="Close menu"
           style={{ color: '#1A1815' }}
@@ -37,12 +37,51 @@ export default function MobileMenu({ open, onClose }: Props) {
               href="#"
               className="nav-link font-display text-4xl"
               style={{ color: '#1A1815' }}
+              onClick={closeMenu}
             >
               {label}
             </a>
           </li>
         ))}
       </ul>
+
+      {savedCount > 0 && (
+        <a
+          href="#library"
+          onClick={closeMenu}
+          className="mt-8 inline-flex items-center gap-3 self-start rounded-full px-4 py-2"
+          style={{
+            background: 'rgba(200, 83, 26, 0.10)',
+            border: '1px solid rgba(200, 83, 26, 0.35)',
+          }}
+        >
+          <span
+            className="inline-flex items-center justify-center rounded-full"
+            style={{
+              minWidth: 22,
+              height: 22,
+              padding: '0 7px',
+              background: '#C8531A',
+              color: '#F5F1EA',
+              fontFamily: '"JetBrains Mono", ui-monospace, monospace',
+              fontSize: '11px',
+            }}
+          >
+            {savedCount}
+          </span>
+          <span
+            className="font-mono"
+            style={{
+              fontSize: '12px',
+              letterSpacing: '0.16em',
+              color: '#1A1815',
+            }}
+          >
+            SAVED STUDIES
+          </span>
+        </a>
+      )}
+
       <div className="mt-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span

@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
+import { useNewsletter } from '../store/AppContext'
 
 export default function FinalCTA() {
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const { submitted, submit } = useNewsletter()
 
   return (
     <section
@@ -89,7 +90,7 @@ export default function FinalCTA() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
-                  if (email) setSubmitted(true)
+                  if (email) submit()
                 }}
                 className="flex flex-col gap-4"
               >

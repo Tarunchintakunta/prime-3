@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useMobileMenu, useSavedCourses } from '../store/AppContext'
 
 const MENU = ['Index', 'Library', 'Mentors', 'Field Notes', 'Studio']
 
-type Props = {
-  onOpenMobileMenu: () => void
-}
-
-export default function Nav({ onOpenMobileMenu }: Props) {
+export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
+  const { openMenu } = useMobileMenu()
+  const { count: savedCount } = useSavedCourses()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -75,6 +74,35 @@ export default function Nav({ onOpenMobileMenu }: Props) {
           </span>
         </div>
 
+        {savedCount > 0 && (
+          <a
+            href="#library"
+            className="font-mono inline-flex items-center gap-2"
+            style={{
+              fontSize: '11px',
+              letterSpacing: '0.16em',
+              color: '#1A1815',
+            }}
+            aria-label={`${savedCount} saved studies`}
+          >
+            <span
+              className="inline-flex items-center justify-center rounded-full"
+              style={{
+                minWidth: 22,
+                height: 22,
+                padding: '0 7px',
+                background: '#C8531A',
+                color: '#F5F1EA',
+                fontSize: '10px',
+                letterSpacing: '0.04em',
+              }}
+            >
+              {savedCount}
+            </span>
+            SAVED
+          </a>
+        )}
+
         <a
           href="#"
           className="cta-button inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm"
@@ -87,7 +115,7 @@ export default function Nav({ onOpenMobileMenu }: Props) {
       {/* Mobile hamburger */}
       <button
         type="button"
-        onClick={onOpenMobileMenu}
+        onClick={openMenu}
         className="lg:hidden inline-flex flex-col items-end justify-center gap-1.5 p-2"
         aria-label="Open menu"
       >
