@@ -35,7 +35,7 @@ export default function Footer() {
               className="mt-5 max-w-xs"
               style={{ color: '#4A4640', lineHeight: 1.65, fontSize: '15px' }}
             >
-              A learning studio for the patient and the precise. Lisbon · Kyoto · online.
+              A software school for the patient and the precise. Python, AI, and modern systems. Lisbon · Kyoto · online.
             </p>
 
             <div className="mt-8 flex items-center gap-2">

@@ -10,117 +10,107 @@ type Course = {
   level: 'Foundations' | 'Practitioner' | 'Mastery'
   mentor: string
   blurb: string
-  tone: 'ink' | 'sienna' | 'ivory' | 'paper'
+  image: string
 }
 
 const COURSES: Course[] = [
   {
     id: 'c1',
-    title: 'The Patient Editor',
-    category: 'Writing',
-    weeks: 12,
-    level: 'Practitioner',
-    mentor: 'Mira Kovač',
+    title: 'Python Foundations',
+    category: 'Python',
+    weeks: 8,
+    level: 'Foundations',
+    mentor: 'Maya Okafor',
     blurb:
-      'A long-form study in line editing and structural revision. Read closely, cut bravely, ship the manuscript.',
-    tone: 'paper',
+      'From first script to production-ready code. Variables, control flow, functions, modules, and the Pythonic habits that compound over a career.',
+    image:
+      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200&auto=format&fit=crop&q=70',
   },
   {
     id: 'c2',
-    title: 'Quiet Systems',
-    category: 'Software',
-    weeks: 16,
-    level: 'Mastery',
-    mentor: 'Theo Bayard',
+    title: 'Machine Learning with PyTorch',
+    category: 'Machine Learning',
+    weeks: 14,
+    level: 'Practitioner',
+    mentor: 'Anika Raman',
     blurb:
-      'Architectures that age well. We read the boring parts of distributed systems and write small, durable services.',
-    tone: 'ink',
+      'Tensors, gradients, training loops. Build CNNs, transformers, and a small classifier you actually understand line-by-line.',
+    image:
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=70',
   },
   {
     id: 'c3',
-    title: 'The Long Lens',
-    category: 'Photography',
-    weeks: 10,
-    level: 'Foundations',
-    mentor: 'Anouk Devereux',
+    title: 'Building LLM Applications',
+    category: 'AI Engineering',
+    weeks: 16,
+    level: 'Mastery',
+    mentor: 'Eli Marchetti',
     blurb:
-      'Documentary practice for the slow photographer. One subject, one season, one printed dummy by the end.',
-    tone: 'sienna',
+      'Prompts, RAG, agents, evals. Ship a working LLM product end-to-end — from API call to caching to a real evaluation harness.',
+    image:
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=70',
   },
   {
     id: 'c4',
-    title: 'Letterforms in Time',
-    category: 'Type Design',
-    weeks: 14,
+    title: 'Production React & TypeScript',
+    category: 'Web',
+    weeks: 12,
     level: 'Practitioner',
     mentor: 'Hideo Tachibana',
     blurb:
-      'Design a single typeface from sketch to release. Three weights, two scripts, one defensible idea.',
-    tone: 'paper',
+      'Modern React patterns, strict TypeScript, server components, and the boring discipline of shipping a frontend that does not break in week three.',
+    image:
+      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&fit=crop&q=70',
   },
   {
     id: 'c5',
-    title: 'Soundwriting',
-    category: 'Audio',
-    weeks: 8,
-    level: 'Foundations',
-    mentor: 'Eli Marchetti',
+    title: 'Data Engineering with SQL & Python',
+    category: 'Data',
+    weeks: 12,
+    level: 'Practitioner',
+    mentor: 'Maya Okafor',
     blurb:
-      'Composition for narrative work — podcasts, scores, and the small noises that hold a film together.',
-    tone: 'ivory',
+      'Pipelines, warehouses, dbt, and the kind of SQL the analytics team will thank you for. With one real ETL shipped to production by week ten.',
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=70',
   },
   {
     id: 'c6',
-    title: 'Architecture of Care',
-    category: 'Product Design',
-    weeks: 12,
-    level: 'Practitioner',
-    mentor: 'Yusra Hadid',
+    title: 'Cloud-Native Systems on AWS',
+    category: 'Cloud',
+    weeks: 14,
+    level: 'Mastery',
+    mentor: 'Faraz Mehri',
     blurb:
-      'Designing services that respect attention. Fieldwork, prototyping, and the ethics of every default.',
-    tone: 'paper',
+      'Containers, Kubernetes, IaC with Terraform, and the operational craft to run a service that pages no one at 3 a.m.',
+    image:
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=70',
   },
 ]
 
-const FILTERS = ['All', 'Writing', 'Software', 'Photography', 'Type Design', 'Audio', 'Product Design']
+const FILTERS = ['All', 'Python', 'Machine Learning', 'AI Engineering', 'Web', 'Data', 'Cloud']
 
-function CardArt({ tone, letter }: { tone: Course['tone']; letter: string }) {
-  const palette = {
-    ink: { bg: '#1A1815', fg: 'rgba(245,241,234,0.12)' },
-    sienna: { bg: '#C8531A', fg: 'rgba(245,241,234,0.18)' },
-    ivory: { bg: '#EFE8DA', fg: 'rgba(26,24,21,0.10)' },
-    paper: { bg: '#E9E1D0', fg: 'rgba(26,24,21,0.10)' },
-  }[tone]
+function CardArt({ image, title }: { image: string; title: string }) {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl"
-      style={{ aspectRatio: '4 / 3', background: palette.bg }}
+      className="relative overflow-hidden rounded-2xl bg-ink/10"
+      style={{ aspectRatio: '4 / 3' }}
     >
-      <span
-        className="absolute font-display select-none"
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        className="h-full w-full object-cover"
         style={{
-          right: '-2rem',
-          bottom: '-3rem',
-          fontSize: '18rem',
-          lineHeight: 1,
-          color: palette.fg,
-          fontStyle: 'italic',
-          fontVariationSettings: "'opsz' 144",
+          transition: 'transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
         }}
-        aria-hidden
-      >
-        {letter}
-      </span>
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
       <div
-        className="absolute"
+        className="absolute pointer-events-none rounded-[14px]"
         style={{
-          top: '20px',
-          left: '20px',
-          right: '20px',
-          bottom: '20px',
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: '14px',
-          pointerEvents: 'none',
+          inset: '14px',
+          boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.20)',
         }}
       />
     </div>
@@ -128,12 +118,11 @@ function CardArt({ tone, letter }: { tone: Course['tone']; letter: string }) {
 }
 
 function CourseCard({ course, delay }: { course: Course; delay: number }) {
-  const dark = course.tone === 'ink' || course.tone === 'sienna'
   return (
     <Reveal delay={delay}>
       <article className="group flex flex-col gap-5">
         <div className="cta-button">
-          <CardArt tone={course.tone} letter={course.title[0]} />
+          <CardArt image={course.image} title={course.title} />
         </div>
         <div className="flex items-center justify-between">
           <span
@@ -184,7 +173,6 @@ function CourseCard({ course, delay }: { course: Course; delay: number }) {
             href="#"
             className="watch-link inline-flex items-center gap-1 text-sm"
             style={{ color: '#1A1815' }}
-            aria-hidden={dark ? undefined : undefined}
           >
             <span className="underline-track">Read brief</span>
             <span className="cta-arrow">→</span>
@@ -211,16 +199,16 @@ export default function Catalog() {
             eyebrow="THE LIBRARY // 02"
             title={
               <>
-                Studies in season.{' '}
+                Studies in software,{' '}
                 <em
                   className="font-display"
                   style={{ fontStyle: 'italic', color: '#C8531A' }}
                 >
-                  Nothing on demand.
+                  taught in seasons.
                 </em>
               </>
             }
-            description="A slim, considered catalog. Each study runs once or twice a year, with a small cohort and a single mentor."
+            description="A slim, considered catalog. Each study runs once or twice a year, with a small cohort and a working engineer as your mentor."
           />
           <Reveal delay={120}>
             <a

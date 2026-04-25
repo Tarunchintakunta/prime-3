@@ -16,12 +16,12 @@ const TIERS: Tier[] = [
     name: 'Single Study',
     price: '$480',
     unit: 'per study',
-    blurb: 'A single twelve-to-sixteen week study with a paired mentor.',
+    blurb: 'A single eight-to-sixteen week study with a paired mentor and a small cohort.',
     features: [
-      'Weekly written feedback',
-      'Two 1:1 mentor reviews',
+      'Weekly written code review',
+      'Two 1:1 mentor sessions',
       'Cohort of 12 — no larger',
-      'Lifetime access to your study notes',
+      'Lifetime access to your code and notes',
     ],
     cta: 'Begin a study',
   },
@@ -29,11 +29,11 @@ const TIERS: Tier[] = [
     name: 'Season Pass',
     price: '$1,180',
     unit: 'three studies / year',
-    blurb: 'For practitioners stitching a longer arc across seasons.',
+    blurb: 'For engineers stitching together a longer arc — Python to ML, or web to cloud.',
     features: [
-      'Three studies of your choice',
+      'Any three studies of your choice',
       'Priority mentor matching',
-      'Quarterly cohort dinners (in person, where possible)',
+      'Quarterly cohort meetups (online + in person)',
       'Field Notes annual subscription',
     ],
     highlighted: true,
@@ -48,7 +48,7 @@ const TIERS: Tier[] = [
       'Unlimited studies for twelve months',
       'A dedicated mentor for the full year',
       'Studio space at our Lisbon and Kyoto outposts',
-      'Public showing of your final work',
+      'Public showing of your final project',
     ],
     cta: 'Apply for the Studio',
   },
@@ -67,7 +67,7 @@ export default function Pricing() {
                 className="font-display"
                 style={{ fontStyle: 'italic', color: '#C8531A' }}
               >
-                patient work.
+                serious work.
               </em>
             </>
           }
@@ -207,7 +207,7 @@ export default function Pricing() {
             style={{ color: '#4A4640', lineHeight: 1.7 }}
           >
             Need-based scholarships are open year-round. We reserve at least
-            20% of every cohort for students on full or partial aid — no
+            20% of every cohort for engineers on full or partial aid — no
             paperwork beyond a short note explaining your situation.
           </p>
         </Reveal>

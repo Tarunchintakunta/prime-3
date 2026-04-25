@@ -77,9 +77,9 @@ export default function FinalCTA() {
                 className="mt-8 max-w-lg text-lg"
                 style={{ color: 'rgba(245,241,234,0.88)', lineHeight: 1.6 }}
               >
-                We open enrollments four times a year. Leave your address and
-                we will write — once per season — with the new studies, the
-                mentors, and the deadline. No marketing.
+                We open enrollments four times a year. Leave your email and we
+                will write — once per season — with the new studies, the
+                mentors, and the deadline. No marketing, no LinkedIn games.
               </p>
             </Reveal>
           </div>

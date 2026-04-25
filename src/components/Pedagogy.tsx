@@ -5,17 +5,17 @@ const STEPS = [
   {
     n: '01',
     title: 'Choose your study',
-    body: 'Browse the Library by discipline, season, or mentor. Every study is a contained body of work — twelve to sixteen weeks, deliberately paced.',
+    body: 'Browse the Library by track — Python, Machine Learning, AI Engineering, Web, Data, Cloud. Each study is a contained body of work, eight to sixteen weeks long.',
   },
   {
     n: '02',
-    title: 'Pair with a practitioner',
-    body: 'You are matched with a working mentor, not a content marketer. They review your work each week, in writing and on camera.',
+    title: 'Pair with a working engineer',
+    body: 'You are matched with a practicing engineer or ML researcher — not a content marketer. They review your code each week, in writing and on a live call.',
   },
   {
     n: '03',
-    title: 'Ship something that holds up',
-    body: 'You graduate with a public-facing piece — a manuscript, a system, an installation — and a small cohort that will read it for years.',
+    title: 'Ship something to production',
+    body: 'You graduate with a real, deployed project — a Python service, a trained model, an LLM app — and a small cohort of engineers who will read your PRs for years.',
   },
 ]
 
@@ -36,7 +36,7 @@ export default function Pedagogy() {
               </em>
             </>
           }
-          description="We don't measure learning in modules or minutes. We measure it in finished work — and in the friendships you make trying to finish it."
+          description="We don't measure learning in modules or minutes. We measure it in shipped code — and in the engineers you become friends with trying to ship it."
         />
 
         <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">

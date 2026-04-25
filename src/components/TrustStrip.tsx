@@ -1,13 +1,13 @@
 import Reveal from './Reveal'
 
 const PARTNERS = [
-  'Aperture',
-  'Granta',
-  'MIT Media Lab',
-  'Type@Cooper',
-  'Rhizome',
-  'Eyeo',
-  'Werkplaats',
+  'GitHub',
+  'OpenAI',
+  'PyTorch',
+  'Hugging Face',
+  'MIT CSAIL',
+  'Vercel',
+  'AWS',
 ]
 
 export default function TrustStrip() {
@@ -24,7 +24,7 @@ export default function TrustStrip() {
                 color: '#6B6660',
               }}
             >
-              In good company —
+              Mentors who build with —
             </span>
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-4">
               {PARTNERS.map((p) => (

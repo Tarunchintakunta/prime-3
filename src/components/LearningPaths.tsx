@@ -12,42 +12,47 @@ type Path = {
 
 const PATHS: Path[] = [
   {
-    title: 'From Notebook to Manuscript',
+    title: 'From Beginner to Python Engineer',
     duration: '9 months',
     studies: 4,
     description:
-      'A guided arc for writers with a draft in the drawer. Editing, structure, voice, and the long final pass.',
-    tracks: ['The Patient Editor', 'Structure & Sentence', 'Voice in Revision', 'The Final Read'],
+      'A guided arc for first-time programmers. Syntax to systems, with one shipped project per study and a working backend by month nine.',
+    tracks: [
+      'Python Foundations',
+      'Data Structures & SQL',
+      'APIs with FastAPI',
+      'A Service in Production',
+    ],
     tone: 'paper',
   },
   {
-    title: 'The Quiet Engineer',
+    title: 'The Modern AI Engineer',
     duration: '12 months',
     studies: 5,
     description:
-      'A year for the engineer who wants to build durable, legible systems. Distributed primitives, schema design, and operational craft.',
+      'For engineers building with foundation models. Train, fine-tune, evaluate, deploy — and learn to tell when a prompt is the answer and when it is not.',
     tracks: [
-      'Quiet Systems',
-      'Schema as Story',
-      'Operational Calm',
-      'On-Call Without Burn',
-      'A System You Can Hand Over',
+      'Python for ML',
+      'Machine Learning with PyTorch',
+      'Building LLM Applications',
+      'RAG, Agents & Evals',
+      'Shipping AI in Production',
     ],
     tone: 'ink',
   },
   {
-    title: 'A Year of Making',
+    title: 'Full-Stack Production Track',
     duration: '12 months',
     studies: 6,
     description:
-      'A multi-disciplinary path for designers, photographers, and writers who want a single body of work to show for the year.',
+      'A year for engineers who want to own a feature from database to deploy. Backend, frontend, infra, and the operational craft to keep it standing.',
     tracks: [
-      'Fieldwork',
-      'The Long Lens',
-      'Letterforms in Time',
-      'Architecture of Care',
-      'The Printed Object',
-      'The Public Reading',
+      'Python Foundations',
+      'Production React & TypeScript',
+      'Data Engineering with SQL & Python',
+      'Cloud-Native Systems on AWS',
+      'Observability & On-Call',
+      'A Public Launch',
     ],
     tone: 'sienna',
   },
@@ -70,7 +75,7 @@ export default function LearningPaths() {
               </em>
             </>
           }
-          description="Three multi-study programs for those who want to spend a year in one direction. Each path includes mentor pairing, cohort dinners, and a final public showing."
+          description="Three multi-study programs for engineers who want to spend a year going deep. Each path includes mentor pairing, cohort code reviews, and a public final project."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">

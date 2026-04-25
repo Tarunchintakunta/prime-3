@@ -12,14 +12,14 @@ const STATS = [
     note: 'from 12,400 graduate ratings',
   },
   {
-    value: '$3.2M',
-    label: 'GRANTS & ADVANCES',
-    note: 'awarded to graduates in 2025',
+    value: '$118k',
+    label: 'MEDIAN OFFER',
+    note: 'first engineering role for career-switchers in 2025',
   },
   {
     value: '142',
-    label: 'PUBLISHED WORKS',
-    note: 'shipped from cohort projects last year',
+    label: 'PROJECTS SHIPPED',
+    note: 'graduate apps and services deployed last year',
   },
 ]
 

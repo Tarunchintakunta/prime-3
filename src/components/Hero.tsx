@@ -98,7 +98,7 @@ export default function Hero() {
                 color: '#6B6660',
               }}
             >
-              VOL. 04 — A QUIET REVOLUTION IN LEARNING
+              VOL. 04 — SOFTWARE · AI · PYTHON
             </span>
           </div>
 
@@ -115,9 +115,9 @@ export default function Hero() {
             className="mt-10 max-w-md text-base sm:text-lg animate-fade-rise-delay-2"
             style={{ color: '#4A4640', lineHeight: 1.7 }}
           >
-            A learning studio for the patient and the precise. We pair you with
-            practitioners who teach in seasons, not sprints — and ship work that
-            holds up under daylight.
+            A learning studio for engineers and the AI-curious. We pair you
+            with senior practitioners who teach Python, machine learning, and
+            modern systems — and ship code that holds up in production.
           </p>
 
           {/* CTA cluster */}

@@ -9,21 +9,21 @@ type T = {
 const ITEMS: T[] = [
   {
     quote:
-      'I had carried the same novel draft for six years. In twelve weeks of close editing, I finished it. The mentorship was the difference — and the fact that no one was rushing me.',
+      'I had been stuck in tutorial loops for two years. In twelve weeks I shipped a real Python service with tests, CI, and a mentor who actually read every PR. The difference was not the syllabus — it was the seriousness.',
     author: 'Anders Holm',
-    context: 'Studio Holm — graduated The Patient Editor',
+    context: 'Backend engineer — graduated Python Foundations',
   },
   {
     quote:
-      'Most courses sell you a certificate. Prime sold me a small group of people who still read each other’s pull requests two years later. That is the actual value.',
+      'Most courses sell you a certificate. Prime sold me a small group of engineers who still review each other’s pull requests two years later. That is the actual value.',
     author: 'Priya Raman',
-    context: 'Wellbound — graduated Quiet Systems',
+    context: 'Wellbound — graduated Building LLM Applications',
   },
   {
     quote:
-      'I came in thinking I needed more skills. I left with a printed dummy of my first body of work, a real foreword, and a quieter way of looking.',
+      'I came in already writing PyTorch, but had never owned a model in production. I left with a deployed classifier, a real evaluation harness, and the calm of having done it once with someone watching.',
     author: 'Kenji Iwasaki',
-    context: 'Independent — graduated The Long Lens',
+    context: 'ML engineer — graduated Machine Learning with PyTorch',
   },
 ]
 

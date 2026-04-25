@@ -5,15 +5,19 @@ import SectionHeader from './SectionHeader'
 const ITEMS = [
   {
     q: 'How long is each study?',
-    a: 'Most studies run twelve to sixteen weeks. A few foundations run eight, and a handful of mastery studies stretch to twenty. The pace is set by the work, not by a content calendar.',
+    a: 'Most studies run twelve to sixteen weeks. Foundations like Python run eight; mastery studies in distributed systems or LLMs can stretch to twenty. The pace is set by the work, not by a content calendar.',
   },
   {
     q: 'Live sessions, or pre-recorded?',
-    a: 'Both. Each week opens with a recorded craft talk — usually 25 to 40 minutes — followed by a live cohort review and one mentor office-hour block. Recordings stay yours for life.',
+    a: 'Both. Each week opens with a recorded craft talk — usually 25 to 40 minutes — followed by a live cohort code review and one mentor office-hour block. Recordings stay yours for life.',
+  },
+  {
+    q: 'Do I need prior programming experience?',
+    a: 'Foundations studies (Python Foundations, JavaScript & The Modern Web) assume nothing. Practitioner and Mastery studies expect comfort writing code in at least one language; we will tell you if a study is the wrong fit before you enroll.',
   },
   {
     q: 'How does mentor matching work?',
-    a: 'You write a short application — what you are working on, where you are stuck, what you want to ship. We pair you with the practitioner whose calendar and craft fits. Typical match time is 4 days.',
+    a: 'You write a short application — what you are working on, where you are stuck, what you want to ship. We pair you with the engineer whose calendar and craft fits. Typical match time is 4 days.',
   },
   {
     q: 'Refund policy?',
@@ -21,7 +25,7 @@ const ITEMS = [
   },
   {
     q: 'Do you offer certificates?',
-    a: 'No. Our graduates leave with a portfolio piece, a written reference from their mentor, and a small cohort that knows their work. We have not found certificates to be the thing employers actually read.',
+    a: 'No. Our graduates leave with a deployed project, a written reference from their mentor, and a small cohort that knows their work. We have not found certificates to be the thing engineering managers actually read.',
   },
   {
     q: 'Payment plans and team enrollments?',
@@ -97,7 +101,7 @@ export default function FAQ() {
                   </em>
                 </>
               }
-              description="If your question is not here, write to us. A real person — usually one of the mentors — will answer within two working days."
+              description="If your question is not here, write to us. A real engineer — usually one of the mentors — will answer within two working days."
             />
           </div>
           <div className="lg:col-span-7">
